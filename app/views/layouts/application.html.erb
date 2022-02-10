@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRUD</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!------------------->
+    <!-----Font-Awesome----->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--------------------->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid text-light" style="padding:32px;background:black;">
+    <h1 class="display-4">Controle de Contas</h1>
+    <p class="lead">Faça o controle das suas contas com apenas alguns cliques</p>
+  </div>
+    <%= yield %>
+    </div>
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+   <!-------------->
+   <!------Jquery---->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <!---------------->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   <% if flash.any? %>
+   <script>
+    <% flash.each do |key,value| %>
+    <% type = key.to_s.gsub("alert","error").gsub("notice","success")%>
+    toastr.<%= type %>("<%= value %>");
+    <% end %>
+   </script>
+   <% end %>
+  </body>
+</html>

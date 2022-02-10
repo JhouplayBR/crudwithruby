@@ -1,0 +1,17 @@
+
+<div id="<%= dom_id product %>">
+ <i class="fa fa-pencil" aria-hidden="true"></i>
+<%= link_to edit_product_path(product.id),class:"link_edit" do %>
+  <h3>
+    <%= product.name.upcase %>
+  </h3>
+  <p><%= product.descr%></p>
+  <p class="created">Criado <%= product.created_at%></p>
+  <div class="price">
+    <h2>R$<%= product.price %></h2>
+  </div>
+  <div class="clear"></div>
+<!---end-Modal--->
+</div>
+<% end %>
+
